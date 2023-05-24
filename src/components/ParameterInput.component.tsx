@@ -3,22 +3,28 @@ import React, { ChangeEvent, useState } from 'react';
 type ParameterInputProps = {
     action: string;
     temperature: string;
-    soilMoisture: string;
     humidity: string;
+    energy: string;
+    preasure: string;
+    uv: string;
 }
 
 export default function ParameterInput(){
     const endpoints = {
         temperature : "/agents/temperature",
-        soilMoisture : "/agents/soil-moisture",
         humidity : "/agents/humidity",
+        energy : "/agents/energy",
+        preasure : "/agents/preasure",
+        uv : "/agents/uv",
     }
 
     const [state, setState] = useState<ParameterInputProps>({
         action:'',
         temperature : "30.5",
-        soilMoisture : "15.2",
+        energy : "15.2",
         humidity : "65.3",
+        preasure : "1000",
+        uv : "0.5",
     });
 
     const baseURL = "http://localhost:8081"
@@ -53,7 +59,7 @@ export default function ParameterInput(){
             .catch(error => console.log(error));
     }
 
-    const properties = ['temperature', 'soilMoisture', 'humidity'];
+    const properties = ['temperature', 'humidity', 'energy', 'preasure', 'uv'];
 
     return (
         <>
